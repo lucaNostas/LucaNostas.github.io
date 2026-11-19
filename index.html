@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luca De Angelis Nostas | Portfolio</title>
+    <!-- Link del file CCS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="js-references.css">
+    <!-- Link del file JS -->
+    <script src="script.js" defer></script>
+
+    <!-- Text Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sto preparando le connessioni in anticipo con i server di google, serve per velocizzare il caricamento della pagina,
+          eliminando i tempi morti  prima che il browser inizi a scaricare risorse esterne -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- è la riga che importa effettivamente il file css -->
+</head>
+
+<body>
+
+    <header>
+
+        <a href="#">Luca De Angelis Nostas</a>
+
+        <nav class="nav-links">
+            <a href="#Education">Education</a>
+            <a href="#Certification">Certification</a>
+            <a href="#Project">Project</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+
+        <button class="nav-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+    <dialog class="menu-modal glass-effect">
+        <nav class="modal-list">
+            <a href="#Education">Education</a>
+            <a href="#Certification">Certification</a>
+            <a href="#Project">Project</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+
+    </dialog>
+
+    <main>
+        <!-- #########################################################################################
+         #############################################################################################
+         ############################################################################################# -->
+
+        <section class="hero-section">
+            <div class="hero1">
+                <img src="cartella/foto.jpeg" alt="Luca De Angelis Nostas portrait" class="hero-img">
+                <div class="hero-content">
+                    <h1>Biomedical Engineer</h1>
+                    <h2>Focused on Nanotechnologies and Optical Sensor</h2>
+                </div>
+            </div>
+            <div class="hero2">
+                <p>
+                    I have developed expertise in computational modeling to simulate the physical principles
+                    underlying sensor operation, complementing this study with practical device development
+                    skills: PCB design, 3D modeling, and fundamentals of data processing and machine learning.
+                </p>
+                <!-- target=_blank mi apre un foglio nuovo e non apre il cv sulla stessa pagina -->
+                <a href="cartella/CV.pdf" target="_blank" rel="noopener noreferrer" class="cv glass-effect">
+                    <span>
+                        Download CV
+                    </span>
+                    <span class="cv1">
+                        <img src="cartella/download.svg" alt="">
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- #########################################################################################
+         #############################################################################################
+         ############################################################################################# -->
+
+        <div id="documentation">
+            <section id="Education">
+                <h2>Education</h2>
+                <div class="M-Sc">
+                    <span>
+                        <h2>M.Sc.</h2>
+                        <p><small>12/2023 - 07/2026</small></p>
+                    </span>
+                    <p><small>Campus Bio-Medico University of Rome</small></p>
+                    <h2>Biomedical Engineering</h2>
+                    <h3>Nanotechnologies and Bioartificial Systems</h3>
+                    <p>
+                        <strong>Experimental Thesis:</strong>
+                        Preliminary studies for the development of an optical
+                        sensor for blood glucose monitoring.
+                    </p>
+                    <div class="document-item">
+                        <button class="document-btn glass-effect">Document</button>
+                        <div class="document-list glass-effect">
+                            <a href="cartella/Tesi_Nostas.pdf" target="_blank" rel="noopener noreferrer">Thesis</a>
+                            <a href="cartella/Abstract.pdf" target="_blank" rel="noopener noreferrer">Abstract</a>
+                            <a href="cartella/diploma_ingegneriabiomedica.pdf" target="_blank"
+                                rel="noopener noreferrer">Degree Certificate</a>
+                            <a href="cartella/Certificatodilaureaconesami_Magistrale.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Degree Certificate with a list
+                                of exams
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="B-Sc">
+                    <span>
+                        <h2>B.Sc.</h2>
+                        <p><small>09/2020 - 12/2023</small></p>
+                    </span>
+                    <p><small>Campus Bio-Medico University of Rome</small></p>
+                    <h2>Industrial Engineering</h2>
+                    <h3>Biomedical Track</h3>
+                    <p>
+                        <strong>Experimental Thesis:</strong>
+                        Development and Testing of a Device for Plant Monitoring (NIR/Visible Multispectral Optical
+                        Sensor)
+                    </p>
+                    <div class="document-item">
+                        <button class="document-btn glass-effect">Document</button>
+                        <div class="document-list glass-effect">
+                            <a href="cartella/Diploma_IngegneriaIndustriale.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Degree Certificate
+                            </a>
+                            <a href="cartella/Certificatodilaureaconesami_Triennale.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Degree Certificate with a list of exams
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- #########################################################################################
+         #############################################################################################
+         ############################################################################################# -->
+
+            <section id="certification">
+                <h2>Certification</h2>
+                <div class="ISSWS">
+                    <span>
+                        <p><small>Campus Bio-Medico University of Rome</small></p>
+                        <p><small>09/2020 - 12/2023</small></p>
+                    </span>
+                    <h2>International Summer School on Wearable Sensors</h2>
+                    <p>
+                        Focus on wearable device design/fabrication, biosignal processing, and machine learning models for continuous clinical monitoring
+                    </p>
+                    <div class="document-item">
+                        <button class="document-btn glass-effect">Document</button>
+                        <div class="document-list glass-effect">
+                            <a href="cartella/ISSWS.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Certificate of Attendance
+                            </a>  
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="Project">
+
+        </section>
+
+        <section id="Skills">
+
+        </section>
+
+    </main>
+
+    <footer id="Contact">
+
+
+    </footer>
+
+    <a href="https://wa.me/393461452109" class="wa-link" target="_blank" rel="noopener noreferrer">
+
+        <img src="cartella/image.png" alt="">
+
+    </a>
+</body>
+
+
+</html>
