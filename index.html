@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- evita che ios considera numeri divisi da trattino come contatto telefonico -->
+    <title>Luca De Angelis Nostas | Portfolio</title>
+    <!-- Link del file CCS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- Link del file JS -->
+    <script src="script.js" defer></script>
+
+    <link rel="stylesheet" href="Skills/skill.css">
+    <script src="Skills/skill.js" defer></script>
+
+    <!-- Text Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sto preparando le connessioni in anticipo con i server di google, serve per velocizzare il caricamento della pagina,
+          eliminando i tempi morti  prima che il browser inizi a scaricare risorse esterne -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- è la riga che importa effettivamente il file css -->
+</head>
+
+<body>
+
+    <header>
+
+        <a href="#">Luca De Angelis Nostas</a>
+
+        <nav class="nav-links">
+            <a href="#education">Education</a>
+            <a href="#certification">Certification</a>
+            <a href="#project">Project</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="nav-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+    <dialog class="menu-modal glass-effect">
+        <nav class="modal-list">
+            <a href="#education">Education</a>
+            <a href="#certification">Certification</a>
+            <a href="#project">Project</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </dialog>
+
+    <main>
+        <!-- #########################################################################################
+         #############################################################################################
+         ############################################################################################# -->
+
+        <section class="hero-section">
+            <div class="hero1">
+                <img src="cartella/foto.jpeg" alt="Luca De Angelis Nostas portrait" class="hero-img">
+                <div class="hero-content">
+                    <h1>Biomedical Engineer</h1>
+                    <h2>Focused on Nanotechnologies and Optical Sensor</h2>
+                </div>
+            </div>
+            <div class="hero2">
+                <p>
+                    I have developed expertise in computational modeling to simulate the physical principles
+                    underlying sensor operation, complementing this study with practical device development
+                    skills: PCB design, 3D modeling, and fundamentals of data processing and machine learning.
+                </p>
+                <!-- target=_blank mi apre un foglio nuovo e non apre il cv sulla stessa pagina -->
+                <a href="cartella/CV.pdf" target="_blank" rel="noopener noreferrer" class="cv glass-effect">
+                    <span>
+                        Download CV
+                    </span>
+                    <span class="cv1">
+                        <img src="cartella/download.svg" alt="">
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- #########################################################################################
+         #############################################################################################
+         ############################################################################################# -->
+
+        <section class="sub-title">
+            <h2 class="subTitle">Education</h2>
+            <h2 class="subTitle" aria-hidden="true">Education</h2>
+        </section>
+
+        <div id="documentation">
+
+            <section id="education">
+                <div class="M-Sc">
+                    <span>
+                        <h2>M.Sc.</h2>
+                        <p><small>12/2023 - 07/2026</small></p>
+                    </span>
+                    <p><small>Campus Bio-Medico University of Rome</small></p>
+                    <h2>Biomedical Engineering</h2>
+                    <h3>Nanotechnologies and Bioartificial Systems</h3>
+                    <p>
+                        <strong>Experimental Thesis:</strong>
+                        Preliminary studies for the development of an optical
+                        sensor for blood glucose monitoring.
+                    </p>
+                    <div class="document-item">
+                        <button class="document-btn glass-effect">Document</button>
+                        <div class="document-list glass-effect">
+                            <a href="cartella/Abstract.pdf" target="_blank" rel="noopener noreferrer">Abstract</a>
+                            <a href="cartella/diploma_ingegneriabiomedica.pdf" target="_blank"
+                                rel="noopener noreferrer">Degree Certificate</a>
+                            <a href="cartella/Certificatodilaureaconesami_Magistrale.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Degree Certificate with a list
+                                of exams
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="B-Sc">
+                    <span>
+                        <h2>B.Sc.</h2>
+                        <p><small>09/2020 - 12/2023</small></p>
+                    </span>
+                    <p><small>Campus Bio-Medico University of Rome</small></p>
+                    <h2>Industrial Engineering</h2>
+                    <h3>Biomedical Track</h3>
+                    <p>
+                        <strong>Experimental Thesis:</strong>
+                        Development and Testing of a Device for Plant Monitoring (NIR/Visible Multispectral Optical
+                        Sensor)
+                    </p>
+                    <div class="document-item">
+                        <button class="document-btn glass-effect">Document</button>
+                        <div class="document-list glass-effect">
+                            <a href="cartella/Diploma_IngegneriaIndustriale.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Degree Certificate
+                            </a>
+                            <a href="cartella/Certificatodilaureaconesami_Triennale.pdf" target="_blank"
+                                rel="noopener noreferrer">
+                                Degree Certificate with a list of exams
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- #########################################################################################
+    #############################################################################################
+    ############################################################################################# -->
+            <section class="sub-title">
+                <h2 class="subTitle">Certification</h2>
+                <h2 class="subTitle" aria-hidden="true">Certification</h2>
+            </section>
+
+            <section id="certification">
+
+                <div class="ISSWS">
+                    <p><small>Campus Bio-Medico University of Rome</small></p>
+                    <p><small>09/2020 - 12/2023</small></p>
+                    <h2>International Summer School on Wearable Sensors</h2>
+                    <p>
+                        Focus on wearable device design/fabrication, biosignal processing, and machine learning models
+                        for continuous clinical monitoring
+                    </p>
+                    <div class="document-item">
+                        <button class="document-btn glass-effect">Document</button>
+                        <div class="document-list glass-effect">
+                            <a href="cartella/ISSWS.pdf" target="_blank" rel="noopener noreferrer">
+                                Certificate of Attendance
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- #########################################################################################
+            #############################################################################################
+            ############################################################################################# -->
+            <section class="sub-title">
+                <h2 class="subTitle">Project</h2>
+                <h2 class="subTitle" aria-hidden="true">Project</h2>
+            </section>
+
+            <section id="project">
+                <div class="proj">
+                    <div>
+                        <p><small>10/2024 - 01/2025</small></p>
+                    </div>
+                    <div>
+                        <h2>Assistive spoon for Parkinson's disease</h2>
+                        <h4>Biodesign Project</h4>
+                    </div>
+                    <div class="proj-description">
+                        <ul>
+                            <li>
+                                Designed a handheld device for active pathological tremor cancellation across 2 DoF
+                                (Roll and Pitch).
+                            </li>
+                            <li>
+                                Designed a custom PCB circuit integrating an inertial measurement unit (IMU) sensor.
+                            </li>
+                            <li>
+                                eveloped real-time firmware with a complementary filter and PWM servomotor control.
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="proj">
+                    <div>
+                        <p><small>04/2024 - 06/2024</small></p>
+                    </div>
+                    <div>
+                        <h2>Mobile Robotic Platform</h2>
+                        <h4>Mechatronics for Biomedical Systems Project</h4>
+                    </div>
+                    <div class="proj-description">
+                        <ul>
+                            <li>
+                                Developed a unicycle mobile robot manufactured via FDM 3D printing with low-level
+                                control on a PIC16 microcontroller.
+                            </li>
+                            <li>
+                                Developed a wireless teleoperated interface in MATLAB (Bluetooth); integrated pose
+                                estimation via odometry and Kalman filter.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- #########################################################################################
+            #############################################################################################
+            ############################################################################################# -->
+
+            <section id="skills">
+                <div class="document-item">
+                    <button class="document-btn">List of Skills</button>
+                    <div class="document-list">
+                        <p>MATLAB</p>
+                        <p>Python</p>
+                        <p>C/C++</p>
+                        <p>HTML/CSS </p>
+                        <p>JavaScript</p>
+                        <p>LaTeX</p>
+                        <p>Microsoft Office</p>
+                        <p>Fusion 360</p>
+                        <p>Inventor Nastran</p>
+                        <p>Autodesk Inventor</p>
+                        <p>Autodesk EAGLE</p>
+                        <p>COMSOL Multiphysics</p>
+                    </div>
+                </div>
+                <div class="skills-holo-wrapper" id="holoContainer">
+                    <canvas id="skillsCanvas"></canvas>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- #########################################################################################
+    #############################################################################################
+    ############################################################################################# -->
+
+    <footer id="contact">
+        <div class="container-img">
+            <a href="" target="_blank" rel="noopener noreferrer">
+                <img src="cartella/phone.webp" alt="" class="img-size">
+            </a>
+        </div>
+        <div class="container-img">
+            <a href="mailto:luca.nostas@gmail.com" target="_blank" rel="noopener noreferrer">
+                <img src="cartella/mail.webp" alt="" class="img-size">
+            </a>
+        </div>
+
+        <div class="container-img">
+            <a href="https://www.linkedin.com/in/luca-de-angelis-nostas" target="_blank" rel="noopener noreferrer">
+                <img src="cartella/in.webp" alt="" class="img-size">
+            </a>
+        </div>
+
+        <div class="container-img" id="wa-footer-target">
+            <a href="https://wa.me/393461452109" target="_blank" rel="noopener noreferrer">
+                <img src="cartella/whatsapp-white-icon.png" alt="" class="img-size">
+            </a>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2026 Luca De Angelis Nostas</p>
+        </div>
+
+    </footer>
+
+
+    <a href="https://wa.me/393461452109" class="wa-link" target="_blank" rel="noopener noreferrer">
+
+        <img src="cartella/wa-black.png" alt="" class="img-size">
+
+    </a>
+</body>
+
+
+</html>
