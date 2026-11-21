@@ -10,8 +10,18 @@ function funscroll(){
     }
 }
 
+const menu = document.querySelector('.nav-btn');
+const navLinks = document.querySelector('.nav-links');
+menu.addEventListener('click',(e)=>{
+    e.stopPropagation(); //arresto propagazione al target evitando bubbling
+    navLinks.classList.toggle('open')
+    menu.classList.toggle('ruota')
+});
+document.addEventListener('click',()=>{
+    navLinks.classList.remove('open')
+});
 
-const menu = document.querySelector('.nav-btn'); /* dovrei mettere button ma metto direttamente la classe del bottone per evitare che ci siano altri bottoni e si possa confondere */
+/* const menu = document.querySelector('.nav-btn'); /* dovrei mettere button ma metto direttamente la classe del bottone per evitare che ci siano altri bottoni e si possa confondere /
 const modal = document.querySelector('.menu-modal');
 menu.addEventListener('click',()=>{
     modal.showModal();    
@@ -20,12 +30,12 @@ menu.addEventListener('click',()=>{
 modal.addEventListener('click', (e)=>{
     /* if(e.target===modal || e.target.tagName==='A'){
         modal.close();
-    } */
+    } /
    // ho scritto matches che sarebbe la stessa cosa di quello sopra 
    if(e.target.matches('.menu-modal , a')){
         modal.close();
    }
-});
+}); */
 
 document.getElementById('documentation').addEventListener('click',(e)=>{
     // 1. Verifica se hai cliccato su uno dei bottoni (o su un'icona al suo interno)
@@ -45,7 +55,8 @@ document.getElementById('documentation').addEventListener('click',(e)=>{
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
+/* SERVE PER FAR SPARIRE L'ICONA DI WHATS APP QUELLA FISSA CHE SCORRE AL LATO
+    document.addEventListener("DOMContentLoaded", () => {
     const waFloating = document.querySelector(".wa-link");
     const waTarget = document.getElementById("wa-footer-target");
 
@@ -85,4 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Controllo iniziale al caricamento
     handleWaScroll();
-});
+}); */

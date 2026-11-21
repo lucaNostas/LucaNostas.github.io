@@ -43,8 +43,8 @@ header {
     top: 0;
     z-index: 1000;
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
 
     padding: 15px;
@@ -58,55 +58,110 @@ header {
     border-bottom: 1px solid transparent;
 
     transition:
-        background 0.3s ease,
-        backdrop-filter 0.3s ease,
-        border-color 0.3s ease;
+        background 0.2s ease,
+        backdrop-filter 0.2s ease,
+        border-color 0.2s ease;
 }
 
 /* scrolled è la classe che crea js */
 
 .glass-effect,
 header.scrolled {
-    /* 1. Vetro trasparente con rifrazione */
-    background: linear-gradient(135deg,
-            rgba(186, 214, 223, 0.45) 0%,
-            rgba(186, 214, 223, 0.12) 100%);
-    backdrop-filter: blur(12px) saturate(140%);
+    /* sto creando un gradiente inclinato a 135deg dove allo 0% è meno trasparente rispetto 100% */
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px) saturate(120%);
+    /* questo da effetto sfocatura  */
     -webkit-backdrop-filter: blur(12px) saturate(140%);
 
     /* 2. Bordo sottile lucido */
-    border: 1px solid rgba(186, 214, 223, 0.55);
+    /* border: 1px solid rgba(77, 83, 84, 0.55); */
 
     /* 3. Riflessi interni (in alto a sx) + ombra esterna morbida */
     box-shadow:
-        inset 2px 3px 6px rgba(186, 214, 223, 0.85),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
         /* Riflesso luce sulla cupola */
-        inset -2px -3px 8px rgba(0, 0, 0, 0.12),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.08),
         /* Spessore inferiore della goccia */
-        0 8px 20px rgba(0, 0, 0, 0.10);
+        0 8px 20px rgba(0, 0, 0, 0.08);
     /* Ombra proiettata sulla foto */
 
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 
 /* CREAZIONE DEL MENU HAMBURGHER */
+.logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
 .nav-btn {
-    background-color: transparent;
-    border: none;
+    grid-column: 2;
+    grid-row: 1;
+    align-items: flex-end;
+    --bar-height: 2.5px;
+    --bar-gap: 6px;
+
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: var(--bar-gap);
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.35s ease;
 }
 
 .nav-btn span {
     background-color: #333;
-    width: 25px;
-    height: 2.5px;
+    display: block;
+    width: 100%;
+    height: var(--bar-height);
+    transform-origin: center;
+    transition: transform 0.35s ease, opacity 0.25s ease;
     /* NB l'altezza delle stanghette dipende sia da height che da gap sopra perche sarebbero gli spazi vuoti */
+}
+/* Rotazione dell'intero bottone durante il cambio */
+.nav-btn.ruota {
+  transform: rotate(180deg);
+}
+
+/* Prima barra: scende al centro e ruota */
+.nav-btn.ruota span:nth-child(1) {
+  transform: translateY(calc(var(--bar-height) + var(--bar-gap))) rotate(45deg);
+}
+
+/* Barra centrale: scompare */
+.nav-btn.ruota span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+/* Terza barra: sale al centro e ruota */
+.nav-btn.ruota span:nth-child(3) {
+  transform: translateY(calc(-1 * (var(--bar-height) + var(--bar-gap)))) rotate(-45deg);
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-links.open {
+    grid-row: 2;
+    grid-column: 1/-1;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 15px;
+    padding: 15px 0 0 0;
 }
 
 
-.nav-links,
+
+/* .nav-links,
 .modal-list {
     display: none;
 }
@@ -117,19 +172,19 @@ header.scrolled {
     background-color: #E2D7C1;
     width: 90%;
     height: 60vh;
-    margin: 0; /* Rimuove i margini automatici del dialog nativo */
+    margin: 0; /* Rimuove i margini automatici del dialog nativo /
     
-    /* Posizionamento fisso centrato in basso */
-    position: fixed;
+    
+    position: fixed; /* Posizionamento fisso centrato in basso /
     left: 50%;
     bottom: 20px;
     top: auto;
 
-    /* Stato CHIUSO (fuori dallo schermo in basso) */
+    /* Stato CHIUSO (fuori dallo schermo in basso) /
     opacity: 0;
     transform: translate(-50%, 110%);
     
-    /* Transizione fluida sia in entrata che in uscita */
+    /* Transizione fluida sia in entrata che in uscita /
     transition: 
         transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.3s ease,
@@ -137,13 +192,13 @@ header.scrolled {
         overlay 0.5s allow-discrete;
 }
 
-/* Stato APERTO (quando viene chiamato showModal()) */
+/* Stato APERTO (quando viene chiamato showModal()) /
 .menu-modal[open] {
     opacity: 1;
     transform: translate(-50%, 0);
 }
 
-/* Punto di partenza esatto nell'istante in cui si apre (necessario per animare da display: none) */
+/* Punto di partenza esatto nell'istante in cui si apre (necessario per animare da display: none) /
 @starting-style {
     .menu-modal[open] {
         opacity: 0;
@@ -151,7 +206,7 @@ header.scrolled {
     }
 }
 
-/* Sfondo scuro dietro la modale con dissolvenza sincronizzata */
+/* Sfondo scuro dietro la modale con dissolvenza sincronizzata /
 .menu-modal::backdrop {
     background-color: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
@@ -174,7 +229,7 @@ header.scrolled {
     }
 }
 
-/* I link dentro la modale */
+/* I link dentro la modale /
 .modal-list {
     display: flex;
     flex-direction: column;
@@ -183,7 +238,7 @@ header.scrolled {
     gap: 20px;
     height: 100%;
     padding: 20px;
-}
+} */
 
 /* ##############################################################################
 #################################################################################
@@ -261,14 +316,11 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.5s ease;
 }
 
 .cv:hover {
-    transform: scale(1.04);
-    box-shadow:
-        inset 3px 4px 8px rgba(186, 214, 223, 0.95),
-        inset -2px -4px 10px rgba(0, 0, 0, 0.15),
-        0 12px 28px rgba(0, 0, 0, 0.16);
+    transform: scale(1.1);
 }
 
 .cv1 {
@@ -350,7 +402,8 @@ header.scrolled {
 }
 
 #education,
-#certification {
+#certification,
+#skills {
     border: 1px solid #333;
     padding: 0 10px 10px 10px;
     border-radius: 25px;
@@ -360,7 +413,7 @@ header.scrolled {
 
 .M-Sc,
 .B-Sc,
-.ISSWS{
+.ISSWS {
     margin-top: 10px;
 }
 
@@ -378,33 +431,53 @@ header.scrolled {
     padding: 15px 15px;
     font-size: large;
     font-weight: 700;
-    background-color: transparent;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
 
     /* Allinea testo e freccetta */
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Oppure 'space-between' se vuoi la scritta a sinistra e la freccia a destra */
+    justify-content: space-between;
+    /* Oppure 'space-between' se vuoi la scritta a sinistra e la freccia a destra */
+
 }
+
 .arrow-icon {
     transition: transform 0.35s ease;
-    flex-shrink: 0; /* Evita che l'icona si schiacci su schermi piccoli */
+    flex-shrink: 0;
+    /* Evita che l'icona si schiacci su schermi piccoli */
+
+}
+
+
+.document-btn.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
 }
 
 /* Quando il bottone ha la classe .active, ruota la freccia di 180 gradi */
 .document-btn.active .arrow-icon {
     transform: rotate(180deg);
+
 }
+
 /* Stato chiuso: usa grid invece di display: none */
 .document-list {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.5s ease;
+    transition: grid-template-rows 0.35s ease;
+    border-radius: 20px;
+
 }
 
 /* Stato aperto: attivato dalla tua classe .active */
 .document-list.active {
+
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     grid-template-rows: 1fr;
 }
 
@@ -418,10 +491,12 @@ header.scrolled {
     /* Il padding verticale va animato o gestito internamente per evitare che si veda una striscia vuota da chiuso */
     padding: 0 15px;
     transition: padding 0.35s ease;
+
 }
 
 .document-list.active .document-inner {
     padding: 15px;
+
 }
 
 /* ##############################################################################
@@ -440,7 +515,7 @@ header.scrolled {
     gap: 10px;
 }
 
-.proj-description{
+.proj-description {
     margin-left: 20px;
 }
 
@@ -454,25 +529,25 @@ footer {
     margin-top: 40px;
     background: #333;
     padding: 20px;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-items: center;
 
 }
 
-.container-img{
-    
+.container-img {
+
     grid-row: 1;
     width: 30px;
 }
 
 
-.container-img:hover{
+.container-img:hover {
     background-color: transparent;
     transform: translateY(-2px);
 }
 
-.copyright{
+.copyright {
     grid-row: 2;
     grid-column: 1/-1;
     color: #E2D7C1;
@@ -482,7 +557,8 @@ footer {
 .wa-link {
     display: inline-block;
     width: 30px;
-    height: 30px; /* Uniformato ai 30px di .container-img */
+    height: 30px;
+    /* Uniformato ai 30px di .container-img */
     position: fixed;
     bottom: 10px;
     right: 20px;
@@ -499,11 +575,11 @@ footer {
 /* Stato quando l'icona nera si è sovrapposta a quella bianca */
 .wa-link.landed {
     opacity: 0;
-    pointer-events: none; /* Evita che blocchi i click sull'icona bianca sotto */
+    pointer-events: none;
+    /* Evita che blocchi i click sull'icona bianca sotto */
 }
 
-.img-size{
+.img-size {
     width: 100%;
     height: auto;
 }
-
